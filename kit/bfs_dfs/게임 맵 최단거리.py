@@ -4,18 +4,18 @@ def bfs(maps):
     n = len(maps)
     m = len(maps[0])
     
-    visited = [[0] * n for _ in range(m)]
-    res = [[0] * n for _ in range(m)]
+    visited = [[0] * m for _ in range(n)]  
+    res = [[0] * m for _ in range(n)] 
     
     # 동 남 서 북
     dx = [0, 1, 0, -1]  
     dy = [1, 0, -1, 0]
     
-    queue = deque([(0, 0)])
-    visited[0][0] = 1
-    res[0][0] = 1
+    queue = deque([(0, 0)]) 
+    visited[0][0] = 1 
+    res[0][0] = 1 
     
-    while queue:
+    while queue:  
         x, y = queue.popleft()
         
         for i in range(4):
@@ -27,17 +27,18 @@ def bfs(maps):
                 
             if visited[nx][ny] == 1 or maps[nx][ny] == 0:  
                 continue
-            
-            visited[nx][ny] = 1
+                
+            visited[nx][ny] = 1  
             res[nx][ny] = res[x][y] + 1  
-            queue.append((nx, ny))
-            
+            queue.append((nx, ny))  
+
     val = res[n-1][m-1]     
     if val == 0:  
         return -1
     else:
         return val
     
+
 def solution(maps):
     return bfs(maps)
 
