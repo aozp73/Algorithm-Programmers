@@ -1,6 +1,3 @@
-lis = []
-for num in range(65, 65+26):
-    lis.append(chr(num))
-print(lis)
+s_set =  [{(1, 2), (1, 3)}]
 
-print(chr(66))
+print({(1, 3), (1, 2)} in s_set)
